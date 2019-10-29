@@ -1,0 +1,1 @@
+setInterval(gameLoop, 40);
