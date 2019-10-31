@@ -1,0 +1,42 @@
+1- Criar um algoritmo que 
+armazene números em um vetor de 10 posições e imprimir
+ o somatório desses valores.
+
+ALGORITMO "Q1"
+VAR
+    contador: INTEIRO
+    numeros: VETOR[1..10] DE REAL
+    somatorio: REAL
+INICIO
+    PARA contador DE 1 ATE 10 FACA
+        ESCREVAL("DIGITE UM NUMERO")
+        LEIA(numeros[contador])
+    FIMPARA
+    Para contador de 1 ATE 10 FACA
+        somatorio <- somatorio + numeros[contador]
+    FIMPARA
+    ESCREVAL("O somatório destes valores é: ", somatorio)
+FIMALGORITMO
+__________________________________________________________
+
+2- Criar um algoritmo que armazene cinco nomes em um vetor e 
+depois solicite uma posição do vetor 
+que corresponda a uma pessoa e imprima o nome.
+
+ALGORITMO "Q2"
+vAR 
+    contador: INTEIRO
+    nomes: VETOR[1..5] DE CARACTERE
+INICIO
+    PARA contador DE 1 ATE 5 FACA
+        ESCREVAL("Digite um nome")
+        LEIA(nomes[contador])
+    FIMPARA
+    ESCREVAL("Digite uma posição de 1 a 5")
+    LEIA(contador)
+    ESCREVAL("O nome na posição " + contador + "é: " + nomes[contador])
+FIMALGORITMO
+__________________________________________________________
+3- Criar um algoritmo que armazene cinco nomes distintos
+em um vetor. Após carregar o vetor solicite um nome,
+se for encontrado imprimir a posição desse nome no vetor.

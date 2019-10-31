@@ -2,10 +2,14 @@ var teclaCima = false;
 var teclaBaixo = false;
 var teclaEsquerda = false;
 var teclaDireita = false;
+var mousePosX;
+var mousePosY;
 window.addEventListener('keydown', this.keyPressed, false);
 window.addEventListener('keyup', this.keyReleased, false);
 window.addEventListener('mousemove', this.keyReleased, false);
+window.addEventListener('keydown', this.getLetras, false);
 var letras = ['t', 'e', 's', 't', 'e'];
+var contador = 0;
 
 let personagem = new Personagem();
 
@@ -18,13 +22,15 @@ function gameLoop() {
     render();
 }
 
-function escreverLetras() {
+function escreverLetras(letra) {
+    if (letras[0] == letra) {
+        console.log("true");
+    };
     console.log(letras);
 }
 
 function handlerEvents() {
-    personagem.setVelX(0);
-    personagem.setVelY(0);
+
     atual = personagem.getParada();
     if (teclaCima == true) {
         atual = personagem.getCima();
@@ -55,6 +61,7 @@ function handlerEvents() {
         atual = personagem.getDireita();
         personagem.setVelX(3);
     }
+
 }
 
 function checarColisoes() {
@@ -66,7 +73,14 @@ function checarColisoes() {
     }
 }
 
+function getLetras(e) {
+    var letra = e.key;
+    console.log(letra);
+    escreverLetras(letra);
+}
+
 function keyPressed(e) {
+    // console.log(e);
     var code = e.keyCode;
     switch (code) {
         case 37:
@@ -84,7 +98,9 @@ function keyPressed(e) {
     }
 }
 
+
 function keyReleased(e) {
+    // console.log(e);
     var code = e.keyCode;
     switch (code) {
         case 37:
@@ -105,15 +121,46 @@ function keyReleased(e) {
 setInterval(gameLoop, 17);
 
 function mouseCoord(evt) {
-
-    console.log("X: ", evt.clientX);
-    console.log("Y: ", evt.clientY);
-    personagem.setPosX(evt.clientX);
-    personagem.setPosY(evt.clientY);
-
-    teste = true;
+    mousePosX = evt.clientX;
+    mousePosY = evt.clientY;
+    mouseMove(evt.clientX, evt.clientY);
     escreverLetras();
-    console.log(teste);
+    console.log(move);
+
+
+}
+
+function mouseMove(positionX, positionY) {
+    // personagem.setPosX(positionX);
+    // personagem.setPosY(positionY);
+    atual = personagem.getParada();
+    // SUBIR 
+    if (positionY < personagem.getPosY()) {
+        atual = personagem.getCima();
+        console.log("cima")
+        personagem.setVelY(-3);
+        if (positionX > personagem.getPosX()) {
+
+            console.log("cimaDireita")
+            personagem.setVelX(3);
+        }
+        if (positionX < personagem.getPosX()) {
+            console.log("cimaEsquerda")
+            personagem.setVelX(-3);
+        }
+    } else if (positionY > personagem.getPosY()) {
+        console.log("baixo")
+        personagem.setVelY(3);
+        if (positionX > personagem.getPosX()) {
+            console.log("baixoDireita")
+            personagem.setVelX(3);
+        }
+        if (positionX < personagem.getPosX()) {
+            console.log("baixoEsquerda")
+            personagem.setVelX(-3);
+        }
+    }
+    escreverLetras();
 }
 
 function testeMouse() {

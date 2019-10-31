@@ -13,7 +13,7 @@
 
 <body>
 
-    <canvas id="tela" width="640" height="480" onmousedown="mouseCoord(event)" onmouseup="testeMouse()"></canvas>
+    <canvas id="tela" width="640" height="480" onkeydown="escreverLetras()" onmousemove="mouseCoord(event)" onmousedown="mouseMove()" onmouseup="testeMouse()"></canvas>
     <div style="display:none;">
         <img id="parada" src="3.gif">
         <img id="direita" src="1.gif">
