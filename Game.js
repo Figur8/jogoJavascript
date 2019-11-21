@@ -27,6 +27,10 @@ function escreverLetras(letra) {
         console.log(letra + " foi removida", letras.indexOf(letra));
         letras.splice(letras.indexOf(letra), 1);
         console.log(letras);
+    } else {
+        if (!letras.includes(letra)) {
+            personagem.setVida();
+        }
     }
     if (letras.length == 0) {
         console.log("você venceu");
@@ -55,7 +59,6 @@ function mouseCoord(evt) {
     mousePosX = evt.clientX;
     mousePosY = evt.clientY;
     mouseMove(evt.clientX, evt.clientY);
-    escreverLetras();
 }
 
 function mouseMove(positionX, positionY) {
@@ -79,5 +82,4 @@ function mouseMove(positionX, positionY) {
             personagem.setVelX(-3);
         }
     }
-    escreverLetras();
 }

@@ -3,6 +3,7 @@ var posY = 100;
 var raio = 50;
 var velX = 3;
 var velY = 3;
+var vida = 5;
 var parada = document.getElementById('parada');
 var direita = document.getElementById('direita');
 var esquerda = document.getElementById('esquerda');
@@ -14,7 +15,9 @@ var esquerda_baixo = document.getElementById('esquerda_baixo');
 var esquerda_cima = document.getElementById('esquerda_cima');
 
 class Personagem {
-
+    getVida() {
+        return vida;
+    }
     getPosX() {
         return posX;
     }
@@ -56,6 +59,14 @@ class Personagem {
     }
     getEsquerdaCima() {
         return esquerda_cima;
+    }
+    setVida() {
+        if (vida != 0) {
+            vida--;
+            console.log(vida);
+        } else {
+            console.log("você perdeu");
+        }
     }
     setPosX(internalPosX) {
         posX = internalPosX;
