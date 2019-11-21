@@ -24,9 +24,9 @@ function gameLoop() {
 
 function escreverLetras(letra) {
     if (letras.includes(letra)) {
-        console.log(letra + " foi removida", letras.indexOf(letra));
+        console.log("letra foi removida: ", letra);
         letras.splice(letras.indexOf(letra), 1);
-        console.log(letras);
+        console.log("letras restantes: ", letras);
     } else {
         if (!letras.includes(letra)) {
             personagem.setVida();
@@ -58,11 +58,13 @@ setInterval(gameLoop, 17);
 function mouseCoord(evt) {
     mousePosX = evt.clientX;
     mousePosY = evt.clientY;
-    mouseMove(evt.clientX, evt.clientY);
+    if (evt.clientX != personagem.getPosX()) {
+        mouseMove(evt.clientX, evt.clientY);
+    }
 }
 
 function mouseMove(positionX, positionY) {
-    atual = personagem.getParada();
+
     if (positionY < personagem.getPosY()) {
         atual = personagem.getCima();
         personagem.setVelY(-3);

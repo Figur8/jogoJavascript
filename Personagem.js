@@ -63,7 +63,7 @@ class Personagem {
     setVida() {
         if (vida != 0) {
             vida--;
-            console.log(vida);
+            console.log("sofreu dano! sua vida atual é: ", vida);
         } else {
             console.log("você perdeu");
         }
