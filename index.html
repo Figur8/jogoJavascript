@@ -7,13 +7,17 @@
             margin: 0px;
             padding: 0px;
         }
+        
+        canvas {
+            background-color: aqua;
+            width: 400px;
+        }
     </style>
     <title>Page Title</title>
 </head>
 
 <body>
-
-    <canvas id="tela" width="640" height="480" onkeydown="escreverLetras()" onmousemove="mouseCoord(event)" onmousedown="mouseMove()" onmouseup="testeMouse()"></canvas>
+    <canvas id="tela" width="640" height="480" onkeydown="getLetras()" onmousemove="mouseCoord(event)"></canvas>
     <div style="display:none;">
         <img id="parada" src="3.gif">
         <img id="direita" src="1.gif">
@@ -29,9 +33,6 @@
     <script type="text/javascript" src="Game.js"></script>
     <script type="text/javascript" src="Principal.js"></script>
     <script type="text/javascript" src="main.js"></script>
-    <script>
-    </script>
-
 </body>
 
 </html>
